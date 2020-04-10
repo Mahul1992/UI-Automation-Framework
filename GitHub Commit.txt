@@ -1,0 +1,6 @@
+URL To Changes on GITHUB
+
+https://help.github.com/en/github/importing-your-projects-to-github/adding-an-existing-project-to-github-using-the-command-line
+
+Forcefully Pushing the file on GitHub
+$ git push -f origin master
