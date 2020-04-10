@@ -1,0 +1,8 @@
+G:\UI Automation Framework\EATestProject\bin\Debug\netstandard2.0\EATestProject.deps.json
+G:\UI Automation Framework\EATestProject\bin\Debug\netstandard2.0\EATestProject.dll
+G:\UI Automation Framework\EATestProject\obj\Debug\netstandard2.0\EATestProject.csproj.CoreCompileInputs.cache
+G:\UI Automation Framework\EATestProject\obj\Debug\netstandard2.0\EATestProject.AssemblyInfoInputs.cache
+G:\UI Automation Framework\EATestProject\obj\Debug\netstandard2.0\EATestProject.AssemblyInfo.cs
+G:\UI Automation Framework\EATestProject\bin\Debug\netstandard2.0\EATestProject.pdb
+G:\UI Automation Framework\EATestProject\obj\Debug\netstandard2.0\EATestProject.dll
+G:\UI Automation Framework\EATestProject\obj\Debug\netstandard2.0\EATestProject.pdb
