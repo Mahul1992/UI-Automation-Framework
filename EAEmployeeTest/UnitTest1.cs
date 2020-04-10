@@ -16,12 +16,12 @@ namespace EAEmployeeTest
     [TestFixture]
     class UnitTest1:Base
     {
-       
+        string url = "https://rahulshettyacademy.com/#/index";
         [Test]
         public void Login()
         {
             
-            string url = "https://rahulshettyacademy.com/#/index";
+            
             //DriverContext.Driver = new ChromeDriver(driverPath);
             // DriverContext.Driver.Url = "https://rahulshettyacademy.com/#/index";
             OpenBrowser(BrowserType.Chrome);
