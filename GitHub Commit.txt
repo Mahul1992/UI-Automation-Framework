@@ -4,3 +4,9 @@ https://help.github.com/en/github/importing-your-projects-to-github/adding-an-ex
 
 Forcefully Pushing the file on GitHub
 $ git push -f origin master
+
+git push origin https://github.com/Mahul1992/UI-Automation-Framework.git
+
+
+Commit The Changes URL:
+https://docs.microsoft.com/en-us/azure/devops/repos/git/gitquickstart?view=azure-devops&tabs=visual-studio

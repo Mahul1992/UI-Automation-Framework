@@ -1,4 +1,5 @@
 ﻿using EAAutoFramework.Base;
+using EAAutoFramework.Helpers;
 using EAEmployeeTest.Pages;
 using NUnit.Framework;
 using OpenQA.Selenium;
@@ -20,15 +21,15 @@ namespace EAEmployeeTest
         [Test]
         public void Login()
         {
-            
-            
-            //DriverContext.Driver = new ChromeDriver(driverPath);
+            string fileName = Environment.CurrentDirectory.ToString() + "/Data/Login.xls";
+            ExcelHelpers.PopulateInCollection(fileName);
+           //DriverContext.Driver = new ChromeDriver(driverPath);
             // DriverContext.Driver.Url = "https://rahulshettyacademy.com/#/index";
             OpenBrowser(BrowserType.Chrome);
             DriverContext.Browser.GoToURL(url);
             CurrentPage = GetInstance<LoginPage>();
             CurrentPage.As<LoginPage>().ClickLoginLink();
-            CurrentPage.As<LoginPage>().Login("UserName", "Password");
+            CurrentPage.As<LoginPage>().Login(ExcelHelpers.ReadData(0,"UserName"), ExcelHelpers.ReadData(0, "Password"));
 
 
         }
