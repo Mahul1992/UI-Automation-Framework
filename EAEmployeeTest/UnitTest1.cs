@@ -58,7 +58,10 @@ namespace EAEmployeeTest
 
 
         }
+        public void Test2()
+        {
 
+        }
         [TearDown]
         public void TearDown()
         {
