@@ -21,12 +21,15 @@ namespace EAEmployeeTest
         [Test]
         public void Login()
         {
+            LogHelpers.CreateLogFile();
             string fileName = Environment.CurrentDirectory.ToString() + "/Data/Login.xls";
             ExcelHelpers.PopulateInCollection(fileName);
            //DriverContext.Driver = new ChromeDriver(driverPath);
             // DriverContext.Driver.Url = "https://rahulshettyacademy.com/#/index";
             OpenBrowser(BrowserType.Chrome);
+            LogHelpers.Write("Open the Browser.");
             DriverContext.Browser.GoToURL(url);
+            LogHelpers.Write("Navigated to URL.");
             CurrentPage = GetInstance<LoginPage>();
             CurrentPage.As<LoginPage>().ClickLoginLink();
             CurrentPage.As<LoginPage>().Login(ExcelHelpers.ReadData(0,"UserName"), ExcelHelpers.ReadData(0, "Password"));
