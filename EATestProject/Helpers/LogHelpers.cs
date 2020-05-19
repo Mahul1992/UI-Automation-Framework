@@ -15,7 +15,7 @@ namespace EAAutoFramework.Helpers
 
         public static void CreateLogFile()
         {
-            string dir = @"C:\Users\sonewmah\Desktop\EAAutoFW";
+            string dir = @"C:\Users\sonewmah\Desktop\EAAutoFW\AutoFWLog";
             if (Directory.Exists(dir))
             {
                 _streamw = File.AppendText(dir + _logFileName + ".log");

@@ -18,6 +18,7 @@ namespace EAEmployeeTest
     class UnitTest1:Base
     {
         string url = "https://rahulshettyacademy.com/#/index";
+        string practiceURL = "https://rahulshettyacademy.com/AutomationPractice/";
         [Test]
         public void Login()
         {
@@ -33,8 +34,6 @@ namespace EAEmployeeTest
             CurrentPage = GetInstance<LoginPage>();
             CurrentPage.As<LoginPage>().ClickLoginLink();
             CurrentPage.As<LoginPage>().Login(ExcelHelpers.ReadData(0,"UserName"), ExcelHelpers.ReadData(0, "Password"));
-
-
         }
 
         public void OpenBrowser(BrowserType browserType = BrowserType.Chrome)
@@ -61,14 +60,27 @@ namespace EAEmployeeTest
 
 
         }
-        public void Test2()
-        {
-
-        }
+       
         [TearDown]
         public void TearDown()
         {
             DriverContext.Driver.Quit();
+        }
+
+        [Test]
+        public void TableOperation()
+        {
+            LogHelpers.CreateLogFile();            
+            OpenBrowser(BrowserType.Chrome);
+            LogHelpers.Write("Open the Browser.");
+            DriverContext.Browser.GoToURL(practiceURL);
+            LogHelpers.Write("Navigated to URL.");
+            CurrentPage = GetInstance<PracticePage>();
+            var coursesList = CurrentPage.As<PracticePage>().GetCourses();
+            HtmlTableHelper.ReadTable(coursesList);
+            // HtmlTableHelper.PerformActionOnCell("2", "Price", "0");
+            var TableValues = HtmlTableHelper.GetAllTableValues();                    
+
         }
     }
 }
