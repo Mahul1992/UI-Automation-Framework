@@ -1,4 +1,5 @@
 ﻿using EAAutoFramework.Base;
+using EAAutoFramework.Config;
 using EAAutoFramework.Helpers;
 using EAEmployeeTest.Pages;
 using NUnit.Framework;
@@ -17,7 +18,7 @@ namespace EAEmployeeTest
     [TestFixture]
     class UnitTest1:Base
     {
-        string url = "https://rahulshettyacademy.com/#/index";
+        string url = ConfigReader.InitializeTest();
         string practiceURL = "https://rahulshettyacademy.com/AutomationPractice/";
         [Test]
         public void Login()
