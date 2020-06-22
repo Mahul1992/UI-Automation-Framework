@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<EATestProject>
+  <RunSetting>
+    <AUT>"https://rahulshettyacademy.com/#/index"</AUT>
+    <!--Possible Flag Chrome, FF, IE-->
+    <Browser>Chrome</Browser>
+    <!--Possible Flag Smoke, Regression, unit-->
+    <TestType>Smoke</TestType>
+    <!--Possible flag Y, N-->
+    <IsLog>Y</IsLog>
+    <LogPath>D:\\EAAutoLogs\\</LogPath>
+    <BuildName>DemoBuild</BuildName>
+    <!-- Possible Flag Y, N -->
+    <IsReport>N</IsReport>
+    <UserName>EAutoTeam</UserName>
+    <!-- Possible flag Selenium, Specflow  -->
+    <Technology>Selenium</Technology>
+    
+  </RunSetting> 
+</EATestProject>

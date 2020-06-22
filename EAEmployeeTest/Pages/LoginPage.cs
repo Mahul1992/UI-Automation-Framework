@@ -4,6 +4,8 @@ using SeleniumExtras.PageObjects;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using EAAutoFramework.Extensions;
+
 
 namespace EAEmployeeTest.Pages
 {
@@ -27,6 +29,7 @@ namespace EAEmployeeTest.Pages
             txtUserName.SendKeys(UserName);
             txtPassword.SendKeys(Password);
             btnLogin.Click();
+            
         }
 
         public void ClickLoginLink()

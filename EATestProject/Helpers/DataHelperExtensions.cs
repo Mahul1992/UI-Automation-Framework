@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -37,7 +38,7 @@ namespace EAAutoFramework.Helpers
                 LogHelpers.Write("Error:: " + e.Message);
             }
         }
-        public static DataSet ExecuteQuery(this SqlConnection sqlConnection, string queryString)
+        public static DataTable ExecuteQuery(this SqlConnection sqlConnection, string queryString)
         {
             DataSet dataset;
             try
@@ -57,7 +58,7 @@ namespace EAAutoFramework.Helpers
             }
             catch(Exception e)
             {
-                
+                dataset = null;   
                 sqlConnection.Close();
                 LogHelpers.Write("Error:: " + e.Message);
                 return null;

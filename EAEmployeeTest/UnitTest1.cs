@@ -18,7 +18,7 @@ namespace EAEmployeeTest
     [TestFixture]
     class UnitTest1:Base
     {
-        string url = ConfigReader.InitializeTest();
+        //string url = "https://rahulshettyacademy.com/#/index";
         string practiceURL = "https://rahulshettyacademy.com/AutomationPractice/";
         [Test]
         public void Login()
@@ -26,11 +26,12 @@ namespace EAEmployeeTest
             LogHelpers.CreateLogFile();
             string fileName = Environment.CurrentDirectory.ToString() + "/Data/Login.xls";
             ExcelHelpers.PopulateInCollection(fileName);
+            ConfigReader.SetFrameworkSetting();
            //DriverContext.Driver = new ChromeDriver(driverPath);
             // DriverContext.Driver.Url = "https://rahulshettyacademy.com/#/index";
             OpenBrowser(BrowserType.Chrome);
             LogHelpers.Write("Open the Browser.");
-            DriverContext.Browser.GoToURL(url);
+            DriverContext.Browser.GoToURL(Settings.AUT);
             LogHelpers.Write("Navigated to URL.");
             CurrentPage = GetInstance<LoginPage>();
             CurrentPage.As<LoginPage>().ClickLoginLink();
