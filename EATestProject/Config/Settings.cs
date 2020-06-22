@@ -16,7 +16,6 @@ namespace EAAutoFramework.Config
         public static string IsLog { get; set; }
         public static string LogPath { get; set; }
         public static string IsReporting { get; set; }
-
-
+        public static int Timeout { get; internal set; }
     }
 }

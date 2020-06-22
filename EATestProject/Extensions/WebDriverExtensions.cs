@@ -1,4 +1,5 @@
 ﻿using EAAutoFramework.Base;
+using EAAutoFramework.Config;
 using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
@@ -17,7 +18,7 @@ namespace EAAutoFramework.Extensions
             {
                 string state = dri.ExecuteJs("return document.readyState").ToString();
                 return state=="complete";
-            });
+            }, Settings.Timeout);
         }
 
         public static void WaitForCondition<T>(this T obj , Func<T, bool> condition, int timeout)

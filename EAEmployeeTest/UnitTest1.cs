@@ -2,6 +2,7 @@
 using EAAutoFramework.Config;
 using EAAutoFramework.Helpers;
 using EAEmployeeTest.Pages;
+using EATestProject.Base;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
@@ -16,52 +17,28 @@ using System.Text;
 namespace EAEmployeeTest
 {
     [TestFixture]
-    class UnitTest1:Base
+    class UnitTest1: HookInitialize
     {
         //string url = "https://rahulshettyacademy.com/#/index";
         string practiceURL = "https://rahulshettyacademy.com/AutomationPractice/";
         [Test]
         public void Login()
         {
-            LogHelpers.CreateLogFile();
+           
             string fileName = Environment.CurrentDirectory.ToString() + "/Data/Login.xls";
             ExcelHelpers.PopulateInCollection(fileName);
-            ConfigReader.SetFrameworkSetting();
-           //DriverContext.Driver = new ChromeDriver(driverPath);
+            
+            //DriverContext.Driver = new ChromeDriver(driverPath);
             // DriverContext.Driver.Url = "https://rahulshettyacademy.com/#/index";
-            OpenBrowser(BrowserType.Chrome);
-            LogHelpers.Write("Open the Browser.");
-            DriverContext.Browser.GoToURL(Settings.AUT);
-            LogHelpers.Write("Navigated to URL.");
+
+
+            
             CurrentPage = GetInstance<LoginPage>();
             CurrentPage.As<LoginPage>().ClickLoginLink();
             CurrentPage.As<LoginPage>().Login(ExcelHelpers.ReadData(0,"UserName"), ExcelHelpers.ReadData(0, "Password"));
         }
 
-        public void OpenBrowser(BrowserType browserType = BrowserType.Chrome)
-        {
-            switch (browserType)
-            {
-                case BrowserType.InternetExplorer:
-                    DriverContext.Driver = new InternetExplorerDriver();
-                    DriverContext.Browser = new Browser(DriverContext.Driver);
-                    break;
-                case BrowserType.Firefox:
-                    DriverContext.Driver = new FirefoxDriver();
-                    DriverContext.Browser = new Browser(DriverContext.Driver);
-                    break;
-                case BrowserType.Chrome:
-                    //string curreDir = Environment.CurrentDirectory;
-                    //string driverPath = @curreDir + "//DriverExe";
-                    DriverContext.Driver = new ChromeDriver(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location));
-                    DriverContext.Browser = new Browser(DriverContext.Driver);
-                    DriverContext.Driver.Manage().Window.Maximize();
-                    break;
-             
-            }
-
-
-        }
+        
        
         [TearDown]
         public void TearDown()
@@ -73,7 +50,7 @@ namespace EAEmployeeTest
         public void TableOperation()
         {
             LogHelpers.CreateLogFile();            
-            OpenBrowser(BrowserType.Chrome);
+          
             LogHelpers.Write("Open the Browser.");
             DriverContext.Browser.GoToURL(practiceURL);
             LogHelpers.Write("Navigated to URL.");
